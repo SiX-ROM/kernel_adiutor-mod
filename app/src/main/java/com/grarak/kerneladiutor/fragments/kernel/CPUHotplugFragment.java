@@ -431,11 +431,11 @@ public class CPUHotplugFragment extends RecyclerViewFragment implements
         List<DAdapter.DView> views = new ArrayList<>();
         views.clear();
 
-        if (CPUHotplug.isIntelliPlugActive() || (!CPUHotplug.hasIntelliPlugEnable() && CPUHotplug.hasIntelliPlug())) {
+        if (CPUHotplug.hasIntelliPlug() && (CPUHotplug.isIntelliPlugActive() || !CPUHotplug.hasIntelliPlugEnable())) {
 
             DDivider mIntelliPlugDividerCard = new DDivider();
             mIntelliPlugDividerCard.setText(getString(R.string.intelliplug));
-            if (!CPUHotplug.hasIntelliPlugEnable() && CPUHotplug.hasIntelliPlug()) {
+            if (!CPUHotplug.hasIntelliPlugEnable()) {
                 mIntelliPlugDividerCard.setDescription(getString(R.string.no_enable_toggle));
             }
             views.add(mIntelliPlugDividerCard);
